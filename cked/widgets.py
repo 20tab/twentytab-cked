@@ -23,12 +23,12 @@ json_encode = json.JSONEncoder().encode
 
 class CKEditorWidget(forms.Textarea):
     """
-Widget providing CKEditor for Rich Text Editing.
-"""
+    Widget providing CKEditor for Rich Text Editing.
+    """
     class Media:
         js = (settings.STATIC_URL + 'cked/ckeditor/ckeditor.js',)
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, config=None, *args, **kwargs):
         super(CKEditorWidget, self).__init__(*args, **kwargs)
         # Use default config
         self.options = default_settings.CKEDITOR_DEFAULT_OPTIONS.copy()

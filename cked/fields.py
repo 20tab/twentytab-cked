@@ -19,8 +19,8 @@ class RichTextField(models.TextField):
 
 
 class RichTextFormField(forms.fields.Field):
-    def __init__(self, *args, **kwargs):
-        kwargs.update({'widget': CKEditorWidget()})
+    def __init__(self, config=None, *args, **kwargs):
+        kwargs.update({'widget': CKEditorWidget(config=config)})
         super(RichTextFormField, self).__init__(*args, **kwargs)
 
 # Fix field for South
