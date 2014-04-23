@@ -1,6 +1,10 @@
 Django CKEd
 ===========
 
+A django application that use django-cked as texteditor. It update RichTextField with config parameter
+
+For more informations about django-cked follow this link: https://bitbucket.org/ssbb/django-cked/overview
+
 **IMPORTANT! The application is no longer supported. Please do not use it!
 
 **CKEditor and elFinder integration for Django Framework.**
@@ -15,13 +19,8 @@ Installation
 
 ::
 
-    pip install django-cked
+    pip install twentytab-cked
 
-or
-
-::
-
-    pip install -e hg+https://bitbucket.org/ssbb/django-cked#egg=django-cked
 
 Configuration
 -------------
@@ -63,9 +62,17 @@ Model field
     from django.db import models
     from cked.fields import RichTextField
 
+    EASY_CKE = {
+        'height': 200,
+        'width':400,
+        'forcePasteAsPlainText': True,
+        'toolbar': [['Bold', 'Italic', 'Underline', '-',
+                     'JustifyLeft', 'JustifyCenter', 'JustifyRight',
+                     'JustifyBlock', '-', 'Link', 'Unlink', '-', 'Source']],
+    }
 
     class Entry(models.Model):
-        text = RichTextField()
+        text = RichTextField(config=EASY_CKE)
 
 Widget
 ~~~~~~
