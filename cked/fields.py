@@ -1,6 +1,5 @@
 from django.db import models
 from django import forms
-
 from cked.widgets import CKEditorWidget
 
 
@@ -18,7 +17,7 @@ class RichTextField(models.TextField):
         return super(RichTextField, self).formfield(**defaults)
 
 
-class RichTextFormField(forms.fields.Field):
+class RichTextFormField(forms.fields.CharField):
     def __init__(self, config=None, *args, **kwargs):
         kwargs.update({'widget': CKEditorWidget(config=config)})
         super(RichTextFormField, self).__init__(*args, **kwargs)
