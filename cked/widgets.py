@@ -8,8 +8,10 @@ from django.utils.safestring import mark_safe
 from django.core.urlresolvers import reverse
 
 from django.core.exceptions import ImproperlyConfigured
-from django.forms.util import flatatt
-
+try:
+    from django.forms.utils import flatatt
+except ImportError:
+    from django.forms.util import flatatt
 try:
     import json
 except ImportError:
