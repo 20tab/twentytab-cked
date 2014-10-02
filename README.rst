@@ -65,6 +65,7 @@ Model field
     EASY_CKE = {
         'height': 200,
         'width':400,
+        'enterMode': 2, #Remove the default <p> tag around text
         'forcePasteAsPlainText': True,
         'toolbar': [['Bold', 'Italic', 'Underline', '-',
                      'JustifyLeft', 'JustifyCenter', 'JustifyRight',
